@@ -32,20 +32,19 @@ class Neural_Network(object):
         self.W1 = np.random.randn(self.inputLayerSize, self.hiddenLayerSize)
         self.W2 = np.random.randn(self.hiddenLayerSize, self.outputLayerSize)
 
-    def forward(X):
+    def forward(self, X):
         self.z2 = np.dot(X, self.W1)
-        print self.z2
         self.a2 = self.sigmoid(self.z2)
         self.z3 = np.dot(self.a2, self.W2)
         yHat = self.sigmoid(self.z3)
         return yHat
 
-    def sigmoid(z):
-        return 1/1(1+np.exp(-z))
+    def sigmoid(self, z):
+        return 1/(1+np.exp(-z))
 
 
 
 NN = Neural_Network()
 yHat = NN.forward(X)
 
-print "yHat ->" + yHat
+print "yHat -> %s" %yHat
