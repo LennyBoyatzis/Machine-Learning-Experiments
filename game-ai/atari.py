@@ -2,7 +2,11 @@ import os
 import argparse
 import random as rand
 from environment import Environment
+
+# Trainer class to initialise the reinforcement learning
 from train import Trainer
+
+# import deep Q learner to help observe the game
 from dqn import DQN
 
 ## these are just command line arguments. The 10 line code is at the bottom -- Siraj
@@ -61,9 +65,14 @@ else:
 
 # initialize gym environment and dqn
 env = Environment(args)
+
+# intialize our agent with environment and args
 agent = DQN(env, args)
 
 # train agent
+# this will populate our replay memory with 50,000 plays
+# then initialize our CNN (read the pixels)
+# Q learning algo to start updating decisions based on pixels it receives
 Trainer(agent).run()
 
 # play the game

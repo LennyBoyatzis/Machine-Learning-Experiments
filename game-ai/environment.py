@@ -1,13 +1,11 @@
 import gym
 import gym_pull
-gym_pull.pull('github.com/ppaquette/gym-doom')
 import cv2
 
 class Environment:
 
     def __init__(self, params):
-        # self.gym = gym.make(params.game)
-        self.gym = gym.make('ppaquette/DoomBasic-v0')
+        self.gym = gym.make(params.game)
         self.observation = None
         self.display = params.display
         self.terminal = False
